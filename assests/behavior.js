@@ -6,7 +6,7 @@ $(document).ready(function() {
   var topics = ["Dragon Ball", "Pokemon", "Sailor Moon", "One Piece"];
 
   function displayAnimeInfo() {
-    var anime = $(this).attr("anime-show")
+    var anime = $(this).attr("anime-show");
     var queryURL =
       "https://api.giphy.com/v1/gifs/search?q=" +
       anime +
@@ -17,12 +17,9 @@ $(document).ready(function() {
       url: queryURL,
       method: "GET"
     }).then(function(response) {
-      $("#img-div").text(JSON.stringify(response));
-      var results = response.data;
+      $("#img-div").text(JSON.stringify(response.data));
 
-      for (var i = 0; i < results.length; i++) {
-        console.log(results);
-      }
+      console.log(response.data);
     });
   }
 
