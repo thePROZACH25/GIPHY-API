@@ -18,8 +18,9 @@ $(document).ready(function() {
       method: "GET"
     }).then(function(response) {
       $("#img-div").text(JSON.stringify(response.data));
-
       console.log(response.data);
+      
+      
     });
   }
 
