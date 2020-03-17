@@ -2,8 +2,10 @@
 $(document).ready(function() {
   console.log("document ready");
 
+  //   Anime Array
   var topics = ["Dragon Ball", "Pokemon", "Sailor Moon", "One Piece"];
 
+  //   Render Button Function
   function renderButtons() {
     $("#buttons").empty();
 
@@ -17,27 +19,32 @@ $(document).ready(function() {
   }
   console.log(renderButtons);
 
-  // $("button").on("click", function(){
-  //     var anime = $(this).attr("anime-show");
-  //     console.log(anime);
+  //   On Click Event
+  $("#add-anime").on("click", function(event) {
+    event.preventDefault();
 
-  // var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
-  // anime + "&api_key=BkaUZZWcFij6J7AoQj3WtPb1R2p9O6V9&limit=10";
+    var anime = $("#search-input").val().trim();
 
-  // // AJAX GET request
-  // $.ajax({
-  //     url: queryURL,
-  //     method: "GET"
-  // })
-  // .then(function(response){
-  //     $("#img-div").text(JSON.stringify(response));
-  //     // var results = response.data;
+    topics.push(anime);
 
-  //     // for (var i =0; i< results.length;i++){
-  //     //     console.log(results);
-  //     // }
-  //     // })
-  //     renderButtons();
-  // })
+    // var queryURL =
+    //   "https://api.giphy.com/v1/gifs/search?q=" +
+    //   anime +
+    //   "&api_key=BkaUZZWcFij6J7AoQj3WtPb1R2p9O6V9&limit=10";
+
+    // // AJAX GET request
+    // $.ajax({
+    //   url: queryURL,
+    //   method: "GET"
+    // }).then(function(response) {
+    //   $("#img-div").text(JSON.stringify(response));
+    //   var results = response.data;
+
+    //   for (var i = 0; i < results.length; i++) {
+    //     console.log(results);
+    //   }
+    // });
+    renderButtons();
+  });
   renderButtons();
 });
