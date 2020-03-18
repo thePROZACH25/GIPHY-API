@@ -17,10 +17,23 @@ $(document).ready(function() {
       url: queryURL,
       method: "GET"
     }).then(function(response) {
-      $("#img-div").text(JSON.stringify(response.data));
       console.log(response.data);
-      
-      
+      var results = response.data;
+
+      for (var i = 0; i < results.length; i++) {
+        if (results[i].rating !== "r" && results[i].rating !== "pg-13") {
+          var animeDiv = $("<div class='animeGif'>");
+          var rating = results[i].rating;
+          var p = $("<p>").text("Rating: " + rating);
+          var animeImg = $("<img>");
+          animeImg.attr("src", results[i].images.fixed_height.url);
+
+          animeDiv.append(p);
+          animeDiv.append(animeImg);
+
+          $("#img-div").prepend(animeDiv);
+        }
+      }
     });
   }
 
