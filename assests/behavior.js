@@ -61,6 +61,7 @@ $(document).ready(function() {
   $("#add-anime").on("click", function(event) {
     event.preventDefault();
 
+    $("#img-div").remove();
     var anime = $("#search-input")
       .val()
       .trim();
