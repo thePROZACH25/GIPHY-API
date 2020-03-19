@@ -30,11 +30,23 @@ $(document).ready(function() {
           animeImg.attr("anime-still", results[i].images.fixed_height_still.url);
           animeImg.attr("anime-animate", results[i].images.fixed_height.url);
           animeImg.attr("img-state", "still");
-
+          animeImg.attr("class", "gif");
+          
           animeDiv.append(p);
           animeDiv.append(animeImg);
-
+          
           $("#img-div").prepend(animeDiv);
+          // animate on click event
+          $(".gif").on("click", function() {
+            var state = $(this).attr("img-state");
+            if (state === "still") {
+              $(this).attr("src", $(this).attr("anime-animate"));
+              $(this).attr("img-state", "animate");
+            } else {
+              $(this).attr("src", $(this).attr("anime-still"));
+              $(this).attr("img-state", "still");
+            }
+          });
         }
       };
     });
@@ -72,6 +84,8 @@ $(document).ready(function() {
 
     renderButtons();
   });
+
+
   $(document).on("click", ".anime", alertTopicsName);
   $(document).on("click", ".anime", displayAnimeInfo);
   renderButtons();
