@@ -26,14 +26,17 @@ $(document).ready(function() {
           var rating = results[i].rating;
           var p = $("<p>").text("Rating: " + rating);
           var animeImg = $("<img>");
-          animeImg.attr("src", results[i].images.fixed_height.url);
+          animeImg.attr("src", results[i].images.fixed_height_still.url);
+          animeImg.attr("anime-still", results[i].images.fixed_height_still.url);
+          animeImg.attr("anime-animate", results[i].images.fixed_height.url);
+          animeImg.attr("img-state", "still");
 
           animeDiv.append(p);
           animeDiv.append(animeImg);
 
           $("#img-div").prepend(animeDiv);
         }
-      }
+      };
     });
   }
 
@@ -59,9 +62,9 @@ $(document).ready(function() {
 
   //   On Click Event
   $("#add-anime").on("click", function(event) {
+    // remove method to remove old div
+    $(".animeGif").remove();
     event.preventDefault();
-
-    $("#img-div").remove();
     var anime = $("#search-input")
       .val()
       .trim();
