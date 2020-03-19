@@ -3,7 +3,7 @@ $(document).ready(function() {
   console.log("document ready");
 
   //   Anime Array
-  var topics = ["Dragon Ball", "Pokemon", "Sailor Moon", "One Piece"];
+  var topics = ["Hunter x Hunter", "Akame ga Kill", "Inuyasha", "Fist of the North Star", "Initial D"];
 
   function displayAnimeInfo() {
     var anime = $(this).attr("anime-show");
