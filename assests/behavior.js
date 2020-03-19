@@ -71,7 +71,11 @@ $(document).ready(function() {
     }
   }
   console.log(renderButtons);
-
+  
+  $(".anime").on("click", function(event){
+    event.preventDefault();
+    $(".animeGif").remove();
+  });
   //   On Click Event
   $("#add-anime").on("click", function(event) {
     // remove method to remove old div
